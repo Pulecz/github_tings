@@ -1,3 +1,4 @@
+#!/bin/python
 import requests
 import sys
 
@@ -12,8 +13,6 @@ url = f'https://api.github.com/users/{username}/repos'
 repos=requests.get(url)
 
 ssh_urls = []
-
 for repo in repos.json():
+    print(repo.get('ssh_url'))
     ssh_urls.append(repo.get('ssh_url'))
-for url in ssh_urls:
-    print(url)
